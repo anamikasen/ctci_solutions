@@ -18,13 +18,15 @@ class StackOfPlates:
                 self.stacks.pop()
 
     def popAtIndex(self, substack):
-        if len(self.stacks)+1 < substack:
+        if len(self.stacks)+1 < substack or substack<1:
             print('Substack does not exist')
         else:
-            if len(self.stacks[substack-1]) == self.capacity:
-                print("Stack full")
+            if len(self.stacks[substack-1]) == 0:
+                print("Stack empty")
             else:
                 self.stacks[substack-1].pop()
+                if len(self.stacks[substack-1]) == 0:
+                    self.stacks.pop()
 
 
 def test():
